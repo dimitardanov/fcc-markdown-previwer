@@ -1,7 +1,16 @@
+
+.preview-container {
+  flex-basis: 50%;
+}
+
+.preview-container h1 {
+  line-height: 2rem;
+}
+
 .preview {
-  min-height: 100px;
-  width: 100%;
+  border: 1px solid green;
   padding: 10px;
+  min-height: 500px;
 }
 
 pre {

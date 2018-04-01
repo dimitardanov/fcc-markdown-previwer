@@ -13,8 +13,13 @@ marked.setOptions({
   }
 })
 
-const Preview = (props) => (
-  <div className="preview" dangerouslySetInnerHTML={{__html: marked(props.text)}}></div>
-);
+const Preview = (props) => {
+  return (
+    <div className="preview-container">
+      <h1>Preview</h1>
+      <div className="preview" dangerouslySetInnerHTML={{__html: marked(props.text)}}></div>
+    </div>
+  );
+};
 
 export default Preview;
