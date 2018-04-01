@@ -1,0 +1,11 @@
+.preview {
+  min-height: 100px;
+  width: 100%;
+  padding: 10px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 5px;
+  border-radius: 3px;
+}
