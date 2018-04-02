@@ -4,7 +4,7 @@ import highlight from 'highlightjs';
 
 import '../../../node_modules/highlightjs/styles/solarized-dark.css';
 
-import './Preview.css';
+// import './Preview.css';
 
 marked.setOptions({
   renderer: new marked.Renderer(),

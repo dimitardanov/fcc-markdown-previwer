@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import Editor from './components/Editor/Editor';
 import Preview from './components/Preview/Preview';
