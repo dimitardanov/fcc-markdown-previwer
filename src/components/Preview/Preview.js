@@ -2,9 +2,6 @@ import React from 'react';
 import marked from 'marked';
 import highlight from 'highlightjs';
 
-import '../../../node_modules/highlightjs/styles/solarized-dark.css';
-
-// import './Preview.css';
 
 marked.setOptions({
   renderer: new marked.Renderer(),

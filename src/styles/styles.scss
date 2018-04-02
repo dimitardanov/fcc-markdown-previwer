@@ -1,5 +1,7 @@
-@import './_index.scss';
-@import './_app.scss';
+
+@import './_base.scss';
+@import './layout.scss';
+
 @import './_editor.scss';
 @import './_preview.scss';
 @import '../../node_modules/highlightjs/styles/solarized-dark.css';
