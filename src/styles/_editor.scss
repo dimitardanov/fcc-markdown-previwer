@@ -1,6 +1,7 @@
 
 .editor-container {
-  border: 3px solid gray;
+  margin: 0 10px;
+  margin-bottom: 10px;
 
   h1 {
     line-height: 2rem;
@@ -9,12 +10,12 @@
 
 .editor {
   padding: 10px;
-  border: 3px solid blue;
   outline: none;
   resize: none;
+  border: 1px solid #ddd;
 
   &:focus,
   &:active {
-    box-shadow: inset 0 0 10px #ccc;
+    box-shadow: inset 0 0 10px #ddd;
   }
 }
