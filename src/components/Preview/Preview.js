@@ -3,12 +3,6 @@ import marked from 'marked';
 import highlight from 'highlightjs';
 
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  highlight: function(code) {
-    return highlight.highlightAuto(code).value;
-  }
-});
 
 class Preview extends React.Component {
   constructor(props) {
@@ -20,15 +14,30 @@ class Preview extends React.Component {
 
   optionsHandler = (event) => {
     this.setState({render: event.target.value});
+    if (event.target.value === 'html') {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        xhtml: true
+      });
+    } else if (event.target.value === 'preview') {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        highlight: function(code) {
+          return highlight.highlightAuto(code).value;
+        }
+      });
+    }
   }
 
   render() {
-    let preview = null;
-    let content = marked(this.props.text);
+    let content = '';
+    let classes = ['preview'];
     if (this.state.render === 'html') {
-      preview = <div className="preview code">{content}</div>
+      classes.push('code');
+      content = marked(this.props.text);
+      content = highlight.highlightAuto(content).value;
     } else if (this.state.render === 'preview') {
-      preview = <div className="preview" dangerouslySetInnerHTML={{__html: content}}></div>;
+      content = marked(this.props.text);
     }
     return (
       <div className="preview-container">
@@ -38,7 +47,7 @@ class Preview extends React.Component {
             <option value="html">HTML</option>
           </select>
         </header>
-        {preview}
+        <div className={classes.join(' ')} dangerouslySetInnerHTML={{__html: content}}></div>
       </div>
     );
   }
