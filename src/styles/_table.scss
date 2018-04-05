@@ -12,7 +12,7 @@ td, th {
 th {
   margin-bottom: 5px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $black;
 }
 
 td:last-child,
@@ -32,10 +32,10 @@ tbody tr:first-child td {
 tbody tr {
 
   &:nth-child(even) {
-    background-color: #fbfbfb;
+    background-color: $gray-lightest;
   }
 
   &:hover {
-    background-color: #eee;
+    background-color: $gray-lighter;
   }
 }

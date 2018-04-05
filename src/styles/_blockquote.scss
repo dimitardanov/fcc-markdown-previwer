@@ -5,7 +5,7 @@ blockquote {
   padding: 20px 30px;
   margin: 10px;
   border-radius: 3px;
-  background-color: #fbfbfb;
+  background-color: $gray-lightest;
   font-size: 1.05rem;
 
   &::before {
@@ -22,7 +22,7 @@ blockquote {
 
   &::before,
   &::after {
-    color: #eee;
+    color: $gray-lighter;
     position: absolute;
     font-size: 6rem;
   }
