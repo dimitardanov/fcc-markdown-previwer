@@ -8,15 +8,40 @@ marked.setOptions({
   highlight: function(code) {
     return highlight.highlightAuto(code).value;
   }
-})
+});
 
-const Preview = (props) => {
-  return (
-    <div className="preview-container">
-      <h1>Preview</h1>
-      <div className="preview" dangerouslySetInnerHTML={{__html: marked(props.text)}}></div>
-    </div>
-  );
-};
+class Preview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      render: 'preview'
+    };
+  }
+
+  optionsHandler = (event) => {
+    this.setState({render: event.target.value});
+  }
+
+  render() {
+    let preview = null;
+    let content = marked(this.props.text);
+    if (this.state.render === 'html') {
+      preview = <div className="preview code">{content}</div>
+    } else if (this.state.render === 'preview') {
+      preview = <div className="preview" dangerouslySetInnerHTML={{__html: content}}></div>;
+    }
+    return (
+      <div className="preview-container">
+        <header>
+          <select onChange={this.optionsHandler}>
+            <option value="preview">Preview</option>
+            <option value="html">HTML</option>
+          </select>
+        </header>
+        {preview}
+      </div>
+    );
+  }
+}
 
 export default Preview;

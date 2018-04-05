@@ -2,13 +2,14 @@
 .preview-container {
   margin: 0 10px;
   margin-bottom: 10px;
-
-  h1 {
-    line-height: 2rem;
-  }
 }
 
 .preview {
   border: 1px solid $gray;
   padding: 10px;
+}
+
+.code {
+  white-space: pre-line;
+  font-family: 'Source Code Pro', monospace;
 }
