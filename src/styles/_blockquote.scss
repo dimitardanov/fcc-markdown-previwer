@@ -1,0 +1,29 @@
+
+
+blockquote {
+  position: relative;
+  padding: 20px 30px;
+  margin: 10px;
+  border-radius: 3px;
+  background-color: #fbfbfb;
+  font-size: 1.05rem;
+
+  &::before {
+    content: open-quote;
+    top: -0.1em;
+    left: 0.05em;
+  }
+
+  &::after {
+    content: close-quote;
+    top: -0.1em;
+    right: 0.05em;
+  }
+
+  &::before,
+  &::after {
+    color: #eee;
+    position: absolute;
+    font-size: 6rem;
+  }
+}
