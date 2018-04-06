@@ -14,19 +14,6 @@ class Preview extends React.Component {
 
   optionsHandler = (event) => {
     this.setState({render: event.target.value});
-    if (event.target.value === 'html') {
-      marked.setOptions({
-        renderer: new marked.Renderer(),
-        xhtml: true
-      });
-    } else if (event.target.value === 'preview') {
-      marked.setOptions({
-        renderer: new marked.Renderer(),
-        highlight: function(code) {
-          return highlight.highlightAuto(code).value;
-        }
-      });
-    }
   }
 
   render() {
@@ -34,9 +21,19 @@ class Preview extends React.Component {
     let classes = ['preview'];
     if (this.state.render === 'html') {
       classes.push('code');
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        xhtml: true
+      });
       content = marked(this.props.text);
       content = highlight.highlightAuto(content).value;
     } else if (this.state.render === 'preview') {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        highlight: function(code) {
+          return highlight.highlightAuto(code).value;
+        }
+      });
       content = marked(this.props.text);
     }
     return (
